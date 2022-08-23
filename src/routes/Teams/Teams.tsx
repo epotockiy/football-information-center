@@ -1,6 +1,7 @@
-import { Alert, CircularProgress, Container } from '@mui/material';
+import { Alert } from '@mui/material';
 import React, { useState } from 'react';
 
+import { Progress } from '../../components/Progress/Progress';
 import { useTeamsListQuery } from '../../core/store/teams.api';
 import { Filter } from './components/Filter/Filter';
 import { List } from './components/List/List';
@@ -19,8 +20,10 @@ export function Teams(): JSX.Element {
   );
 
   return (
-    <Container className='teams' maxWidth={false}>
-      <Alert severity='warning'>Pagination filters not applicable for old API, left it only as example</Alert>
+    <>
+      <Alert severity='warning'>
+        Pagination filters not applicable for old API, left it only as example
+      </Alert>
       <Filter
         limit={limit}
         offsetMultiplier={offsetMultiplier}
@@ -32,9 +35,9 @@ export function Teams(): JSX.Element {
 
       {!isLoading && <List teams={data?.teams} />}
 
-      {isLoading && <CircularProgress />}
+      {isLoading && <Progress />}
 
-      {isError && <Alert severity='error'>Something get wrong</Alert>}
-    </Container>
+      {isError && <Alert severity='error'>Teams can&apos;t be loaded</Alert>}
+    </>
   );
 }

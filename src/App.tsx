@@ -1,3 +1,4 @@
+import { Container } from '@mui/material';
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
@@ -9,9 +10,11 @@ function App(): JSX.Element {
   return (
     <>
       <header className='header'>
-        <Link to='/'>Football Information Center</Link>
+        <h2>
+          <Link to='/'>Football Information Center</Link>
+        </h2>
       </header>
-      <div className='main'>
+      <Container className='main' maxWidth='xl'>
         <Routes>
           <Route path='/teams'>
             <Route index element={<Teams />} />
@@ -20,7 +23,7 @@ function App(): JSX.Element {
 
           <Route path='*' element={<Navigate to='/teams' replace></Navigate>} />
         </Routes>
-      </div>
+      </Container>
     </>
   );
 }
