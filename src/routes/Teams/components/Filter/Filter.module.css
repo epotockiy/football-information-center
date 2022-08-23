@@ -1,0 +1,14 @@
+.filters {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters__text {
+
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

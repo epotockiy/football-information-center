@@ -1,0 +1,7 @@
+.list {
+  padding: 5px;
+}
+
+.list__item {
+  display: block;
+}

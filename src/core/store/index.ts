@@ -1,10 +1,12 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+
+import { teamsApi } from './teams.api';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [teamsApi.reducerPath]: teamsApi.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(teamsApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
